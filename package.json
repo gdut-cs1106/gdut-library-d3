@@ -1,0 +1,25 @@
+{
+  "name": "gdut-books-visualization",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "gdut",
+    "book"
+  ],
+  "maintainers": [
+    {
+      "name": "Link",
+      "email": "linkkingjay@gmail.com"
+    }
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Link",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "~0.10.3",
+    "d3": "~3.4.3"
+  }
+}

@@ -20,12 +20,11 @@ var update = function (page) {
 *
 * @param url 页面 url （不包括域名）
 * @param fileName 要保存的文件名
-* @param titleTr 书籍标题所在的列数
 * @param countTr 书籍数量所在的列数
 *
 * @returns null 
 */
-function BookPage(url, fileName, titleTr, countTr) {
+function BookPage(url, fileName, countTr) {
     // 图书馆的域名
     var DOMAIN = 'http://222.200.98.171:81/'; 
     // 数据文件保存的目录
@@ -33,7 +32,6 @@ function BookPage(url, fileName, titleTr, countTr) {
 
     this.url = DOMAIN + url;
     this.fileName = DIR+ fileName;
-    this.titleTr = titleTr;
     this.countTr = countTr;
 
 
@@ -52,8 +50,8 @@ function BookPage(url, fileName, titleTr, countTr) {
         // 第一行是表头
         for (var i = 1, length = trs.length; i < length; i++) {
             books.push({
-                title: trs[i].children[this.titleTr].firstChild.firstChild.innerHTML,
-                href: trs[i].children[this.titleTr].firstChild.firstChild.href,
+                title: trs[i].getElementsByTagName('a')[0].innerHTML,
+                href: trs[i].getElementsByTagName('a')[0].href,
                 count: trs[i].children[this.countTr].innerHTML
             });
         }
@@ -63,8 +61,8 @@ function BookPage(url, fileName, titleTr, countTr) {
 }
 
 var pages = [
-    new BookPage('mc_rank.aspx', 'mc_rank', 1, 6),
-    new BookPage('user_score_rank.aspx', 'user_score_rank', 1, 7)
+    new BookPage('mc_rank.aspx', 'mc_rank', 6),
+    new BookPage('user_score_rank.aspx', 'user_score_rank', 7)
 ];
 
 

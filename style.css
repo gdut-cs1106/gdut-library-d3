@@ -1,0 +1,33 @@
+text {
+    font: 10px sans-serif;
+}
+
+a {
+    color: #37a;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #669;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    background-color: #37a;
+}
+
+article {
+    text-align: center;
+}
+
+footer {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+#container {
+    width: 1080px;
+    margin: 0 auto;
+}

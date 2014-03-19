@@ -12,7 +12,7 @@ var svg = d3.select("article").append("svg")
     .attr("height", diameter)
     .attr("class", "bubble");
 
-d3.json("data/mc_rank.json", function(error, root) {
+d3.json("data/user_score_rank.json", function(error, root) {
     var node = svg.selectAll(".node")
         .data(bubble.nodes(classes(root))
         .filter(function(d) { return !d.children; }))
@@ -30,7 +30,9 @@ d3.json("data/mc_rank.json", function(error, root) {
     node.append("text")
         .attr("dy", ".3em")
         .style("text-anchor", "middle")
-        .text(function(d) { return d.className.substring(0, d.r / 6); });
+        .text(function(d) { 
+            return d.className.substring(0, d.r / 6); 
+        });
 });
 
 // Returns a flattened hierarchy containing all leaf nodes under the root.

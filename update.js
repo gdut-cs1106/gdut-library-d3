@@ -49,6 +49,12 @@ BookPage.prototype.parse = function (errors, window) {
     var books = [];
     var trs = window.document.getElementsByTagName('tr');
 
+    // 部分月份没有数据
+    if (trs.length === 0) {
+        console.log(this.fileName + " has no data.");
+        return;
+    }
+
     // 第一行是表头
     for (var i = 1, length = trs.length; i < length; i++) {
         books.push({
@@ -72,6 +78,28 @@ var pages = [
     // 热门评价
     new BookPage('user_score_rank.aspx', 'user_score_rank', 7, 5)
 ];
+
+
+// 把年份图书数据加入 pages 数组
+(function () {
+    // 数据是从2007年开始有的
+    var START_YEAR = 2007;
+    var now = new Date();
+    var nowYear = now.getFullYear();
+    var date;
+    for (var year = START_YEAR; year <= nowYear; year++) {
+        for (var month = 1; month <= 12; month++) {
+            date = year + "-" + month + "-1";
+            pages.push(new BookPage(
+                "bookrankresult.aspx?maxcount=200&d1=" + date +
+                // 后面部分的查询字符串不影响查询结果，但是去掉的话又不能查询
+                "&d2=2014-2-1&cls=&queryfile=1&yearmon=201402",
+                // 文件名格式为"book-2014-3.json"
+                "book-" + date, 1, 3
+            ));
+        }
+    }
+})();
 
 
 // 更新数据

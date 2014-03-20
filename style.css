@@ -2,28 +2,40 @@ text {
     font: 10px sans-serif;
 }
 
+
 a {
-    color: #37a;
+    color: #39c;
     text-decoration: none;
 }
 
 a:visited {
-    color: #669;
+    color: #39c;
     text-decoration: none;
 }
 
 a:hover {
     color: white;
-    background-color: #37a;
+    background-color: #39c;
+    text-decoration: none;
+}
+
+header, footer {
+    padding: 30px;
+    width: 270px;
+    font-family: sans-serif;
+    position: fixed;
+    float: left;
 }
 
 article {
     text-align: center;
+    float:right;
+    padding-left: 30px;
+    border-left: 1px solid #eee;
 }
 
 footer {
-    font-family: sans-serif;
-    text-align: center;
+    bottom: 50px;
 }
 
 
